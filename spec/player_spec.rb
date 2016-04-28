@@ -17,7 +17,7 @@ describe Player do
   describe "#reduce" do
     it 'reduces the hit points by the default attack value' do
       av = described_class::DEFAULT_ATTACK_VAL
-      expect { mittens.reduce }.to change { mittens.hit_points }.by(av)
+      expect { mittens.reduce }.to change { mittens.hit_points }.by(-av)
     end
   end
 
