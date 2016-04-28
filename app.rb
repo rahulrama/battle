@@ -14,7 +14,7 @@ class Battle < Sinatra::Base
 
   post '/names' do
     player_1 = Player.new(params[:player_1_name])
-    player_2 = Player.new(params[:player_2_name])
+    params[:player_2_name] == "Play against machine" ? player_2 = Player.new("Machine") : player_2 = Player.new(params[:player_2_name])
     @game = Game.start_game(player_1,player_2)
     redirect '/play'
   end
@@ -25,11 +25,12 @@ class Battle < Sinatra::Base
 
   get '/attack' do
     @game.attack(@game.current_opponent)
-    erb :attack
+    @game.over? ? erb(:game_over) : erb(:attack)
   end
 
   post '/switch-turns' do
     @game.switch_turn
+    redirect '/attack' if @game.current_turn.name == "Machine"
     redirect '/play'
   end
 

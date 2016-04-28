@@ -47,7 +47,7 @@ describe Game do
 
 	describe '#game_over' do
 		it 'ends the game if the current opponent reaches 0HP' do
-			allow(player_1).to receive(:hit_points) { 0 }
+			allow(player_2).to receive(:hit_points) { 0 }
 			expect(game).to be_over
 		end
 	end
