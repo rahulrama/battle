@@ -1,19 +1,20 @@
 class Game
 
- attr_reader :player_1, :player_2, :current_turn
+ attr_reader :player_1, :player_2, :current_turn, :current_opponent
 
 	def initialize(player_1, player_2)
 		@player_1 = player_1
 		@player_2 = player_2
     @current_turn = player_1
+    @current_opponent = player_2
 	end
 
 	def attack(player)
-    	player.reduce
+      player.reduce
   end
 
   def switch_turn
-    @current_turn == player_1 ? @current_turn = player_2 : @current_turn = player_1
+    @current_turn, @current_opponent = @current_opponent, @current_turn
   end
 
 end
