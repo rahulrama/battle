@@ -21,7 +21,7 @@ describe Game do
       		expect(game.player_2).to receive(:reduce)
       		game.attack(game.player_2)
     	end
-  	end
+		end
 
 	describe '#current_turn' do
 		it 'starts with player 1' do

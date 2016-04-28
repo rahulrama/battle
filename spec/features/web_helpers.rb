@@ -6,6 +6,7 @@ def sign_in_and_play
 end
 
 def attack_and_ok
+  allow(Random).to receive(:rand) { 10 }
   click_button 'Attack'
   click_button 'OK'
 end

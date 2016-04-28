@@ -26,6 +26,6 @@ class Game
   end
 
   def over?
-    @current_turn.hit_points == 0
+    @current_turn.hit_points <= 0
   end
 end

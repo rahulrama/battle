@@ -1,8 +1,8 @@
 class Player
 
   DEFAULT_HIT_POINTS = 60
-  DEFAULT_ATTACK_VAL = 10
-  attr_reader :name, :hit_points
+
+  attr_accessor :name, :hit_points
 
   def initialize(name, hit_points = DEFAULT_HIT_POINTS)
     @name = name
@@ -10,6 +10,7 @@ class Player
   end
 
   def reduce
-    @hit_points -=DEFAULT_ATTACK_VAL    
+    @hit_points -=Random.rand(21)
+    @hit_points = 0 if @hit_points < 0
   end
 end
