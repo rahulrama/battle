@@ -17,4 +17,7 @@ class Game
     @current_turn, @current_opponent = @current_opponent, @current_turn
   end
 
+  def over?
+    @current_turn.hit_points == 0
+  end
 end

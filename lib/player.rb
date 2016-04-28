@@ -9,10 +9,7 @@ class Player
     @hit_points = hit_points
   end
 
-
   def reduce
-    @hit_points -=DEFAULT_ATTACK_VAL
+    @hit_points -=DEFAULT_ATTACK_VAL    
   end
-
-
 end
